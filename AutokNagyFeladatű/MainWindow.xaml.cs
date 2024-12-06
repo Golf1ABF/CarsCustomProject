@@ -21,8 +21,10 @@ namespace AutokNagyFeladatű
 
             loadInSourceFile();
 
-            chbxOwner.Items.Add("cég");
-            chbxOwner.Items.Add("magánszemély");
+            foreach (var item in lista)
+            {
+                lbxCars.Items.Add(item);
+            }
         }
 
         private void loadInSourceFile() 
@@ -34,10 +36,23 @@ namespace AutokNagyFeladatű
                 lista.Add(new Autok(sr.ReadLine()));
             }
 
-            foreach (var item in lista)
+            foreach (var item in lista.OrderBy(x => x.Marka))
             {
-                cmbxYear.Items.Add(item.GyartasiEv);
+                if (!cmbxBrand.Items.Contains(item.Marka))
+                {
+                    cmbxBrand.Items.Add(item.Marka);
+                }
             }
+
+            foreach (var item in lista.OrderByDescending(x => x.GyartasiEv))
+            {
+                if (!cmbxYear.Items.Contains(item.GyartasiEv))
+                {
+                    cmbxYear.Items.Add(item.GyartasiEv);
+                }
+            }
+                
+
         }
 
         private void searchByLicensePlate_TextChanged(object sender, TextChangedEventArgs e)
@@ -50,31 +65,74 @@ namespace AutokNagyFeladatű
             }
         }
 
-        private void allCarsBtn_Click(object sender, RoutedEventArgs e)
+        private void tbxHowManyKm_TextChanged(object sender, TextChangedEventArgs e)
         {
-            foreach (var item in lista)
+            var selectedCar = (Autok)lbxCars.SelectedItem;
+
+            if (!int.TryParse(tbxHowManyKm.Text, out int km))
             {
-                lbxCars.Items.Add(item);
+                tblCarCost.Text = "Adj meg egy érvényes számot!";
+                return;
             }
+
+            double annualConsumption = km * (selectedCar.Fogyasztas / 100);
+            tblCarCost.Text =
+                $"Ha {km} kilométert teszel meg évente, a kiválasztott autó ({selectedCar.Marka} {selectedCar.Tipus}) " +
+                $"{annualConsumption:F2} liter üzemanyagot fogyaszt el, ami {annualConsumption*650:F0} Ft évente.";
         }
 
         private void cmbxYear_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            lbxCars.Items.Clear();
             var convertedYear = Convert.ToInt32(cmbxYear.SelectedItem);
-            var selectedYear = lista.Where(x => x.GyartasiEv == convertedYear).ToList();
-            foreach (var item in selectedYear)
+
+            if (cmbxBrand.SelectedItem != null)
             {
-                lbxCars.Items.Add(item);
+                lbxCars.Items.Clear();
+                var selectedYear = lista.Where(x => x.GyartasiEv == convertedYear && x.Marka == cmbxBrand.Text).ToList();
+                if (selectedYear.Count > 0)
+                {
+                    foreach (var item in selectedYear)
+                    {
+                        lbxCars.Items.Add(item);
+                    }
+                }
+                else MessageBox.Show("Nincs ilyen autó ilyen évjáratban és márkában.");
+            }
+            else
+            {
+                lbxCars.Items.Clear();
+                var selectedYear = lista.Where(x => x.GyartasiEv == convertedYear).ToList();
+                foreach (var item in selectedYear)
+                {
+                    lbxCars.Items.Add(item);
+                }
             }
         }
 
-        private void newCarBtn_Click(object sender, RoutedEventArgs e)
+        private void cmbxBrand_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var sw = new StreamWriter("../../../src/src.txt", false);
-
-            sw.WriteLine($"{lista.Max(x => x.ID) + 1}{tbxBrand.Text};{tbxType.Text};{tbxColor.Text};{tbxFuelConsumption.Text};{tbxPrice.Text};{chbxOwner.SelectedItem};{tbxLicensePlate.Text}");
-            loadInSourceFile();
+            var convertedYear = Convert.ToInt32(cmbxYear.SelectedItem);
+            lbxCars.Items.Clear();
+            if (cmbxYear.SelectedItem != null)
+            {
+                var selectedBrand = lista.Where(x => x.Marka == cmbxBrand.Text && x.GyartasiEv == convertedYear).ToList();
+                if (selectedBrand.Count > 0)
+                {
+                    foreach (var item in selectedBrand)
+                    {
+                        lbxCars.Items.Add(item);
+                    }
+                }
+                MessageBox.Show("Nincs ilyen autó ilyen évjáratban és márkában.");
+            }
+            else
+            {
+                var selectedBrand = lista.Where(x => x.Marka == cmbxBrand.Text).ToList();
+                foreach (var item in selectedBrand)
+                {
+                    lbxCars.Items.Add(item);
+                }
+            }
         }
     }
 }

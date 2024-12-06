@@ -1,0 +1,50 @@
+1;BMW;320d;2018;Fekete;5,8;7500000;Magánszemély;ABC-123
+2;Toyota;Corolla;2015;Fehér;6,0;3500000;Cég;XYZ-789
+3;Audi;A4;2020;Ezüst;7,2;8500000;Magánszemély;AUX-456
+4;Mercedes;C200;2017;Fekete;6,5;9500000;Cég;QWE-234
+5;Volkswagen;Golf;2016;Kék;5,5;4200000;Magánszemély;GOL-001
+6;Ford;Focus;2014;Szürke;6,8;3200000;Magánszemély;FOR-678
+7;Honda;Civic;2019;Piros;5,4;6800000;Magánszemély;CIV-789
+8;Skoda;Octavia;2021;Zöld;5,6;7000000;Cég;OCT-345
+9;Nissan;Qashqai;2018;Fehér;6,2;6000000;Magánszemély;NIS-012
+10;Mazda;CX-5;2020;Fekete;7,8;9500000;Cég;CX5-123
+11;Hyundai;Tucson;2022;Ezüst;6,3;10200000;Magánszemély;HYN-789
+12;Renault;Clio;2013;Piros;5,0;2500000;Magánszemély;CLI-456
+13;Peugeot;308;2015;Szürke;6,1;3000000;Cég;PEU-345
+14;Suzuki;Swift;2017;Kék;4,8;2700000;Magánszemély;SWI-567
+15;Kia;Sportage;2021;Fekete;6,7;8000000;Cég;KIA-890
+16;Dacia;Duster;2019;Barna;7,0;5000000;Magánszemély;DUS-345
+17;Opel;Astra;2016;Fehér;5,7;4500000;Cég;AST-654
+18;Seat;Leon;2018;Piros;6,3;4000000;Magánszemély;LEO-789
+19;BMW;X5;2021;Fekete;8,0;14500000;Cég;X5X-999
+20;Toyota;Yaris;2016;Sárga;4,7;2800000;Magánszemély;YAR-111
+21;Fiat;500;2014;Fehér;4,2;2200000;Magánszemély;FIA-234
+22;Volvo;XC60;2020;Ezüst;7,5;13500000;Cég;VOL-456
+23;Jeep;Renegade;2019;Narancs;8,2;8900000;Magánszemély;JEE-789
+24;Tesla;Model 3;2022;Fehér;0,0;18000000;Cég;TES-001
+25;Chevrolet;Malibu;2018;Fekete;7,6;5200000;Magánszemély;CHE-567
+26;Alfa Romeo;Giulia;2019;Piros;7,3;12000000;Magánszemély;ARJ-123
+27;Porsche;911;2021;Fekete;9,8;45000000;Cég;P911-456
+28;Lexus;RX 450h;2020;Fehér;6,4;18500000;Magánszemély;LXR-789
+29;Jaguar;XE;2018;Ezüst;7,0;11000000;Magánszemély;JGX-012
+30;Subaru;Forester;2017;Zöld;8,5;9500000;Magánszemély;SFR-345
+31;Mitsubishi;Outlander;2016;Barna;7,9;8900000;Cég;MOL-567
+32;Mini;Cooper;2022;Sárga;5,2;10500000;Magánszemély;MCO-678
+33;Land Rover;Discovery;2021;Fekete;10,3;25000000;Cég;LRD-890
+34;Ferrari;Roma;2023;Piros;12,8;90000000;Magánszemély;FRR-111
+35;Lamborghini;Huracan;2022;Zöld;14,5;125000000;Magánszemély;LHU-222
+36;Bentley;Continental GT;2020;Ezüst;10,0;55000000;Cég;BGT-333
+37;Rolls-Royce;Phantom;2019;Fehér;13,0;150000000;Cég;RRP-444
+38;Citroën;C5 Aircross;2021;Kék;6,8;7500000;Magánszemély;C5A-555
+39;Peugeot;5008;2018;Szürke;6,3;6700000;Cég;P508-666
+40;Fiat;Tipo;2017;Barna;5,6;4000000;Magánszemély;FTT-777
+41;Mazda;MX-5;2020;Piros;6,1;9500000;Magánszemély;MMX-888
+42;Chevrolet;Tahoe;2022;Fekete;11,5;18000000;Cég;CHT-999
+43;Dodge;Charger;2021;Ezüst;12,2;22000000;Magánszemély;DCH-101
+44;Tesla;Model X;2023;Fehér;0,0;32000000;Cég;TMX-202
+45;Hyundai;Ioniq 5;2022;Kék;0,0;14000000;Magánszemély;HYI-303
+46;Kia;EV6;2023;Ezüst;0,0;13500000;Magánszemély;KIE-404
+47;Volvo;XC90;2021;Fekete;8,0;16000000;Cég;VOL-505
+48;Suzuki;Vitara;2020;Fehér;5,9;6200000;Magánszemély;SUV-606
+49;Nissan;Leaf;2022;Zöld;0,0;12000000;Magánszemély;NIL-707
+50;Renault;Zoe;2023;Fehér;0,0;10000000;Cég;RZO-808

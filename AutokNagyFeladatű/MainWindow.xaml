@@ -5,64 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutokNagyFeladatű"
         mc:Ignorable="d"
-        Title="Autók" Height="450" Width="800">
+        Title="Autók" Height="650" Width="1500">
     <Grid>
-        <Button x:Name="allCarsBtn" Content="Összes autó megjelenítése" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Center" 
-            Margin="10,0,0,0" 
-            Width="213" 
-            Height="42" Click="allCarsBtn_Click" RenderTransformOrigin="0.289,0.511">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" Value="#FF4CAF50"/>
-                    <!-- Modern zöld szín -->
-                    <Setter Property="Foreground" Value="White"/>
-                    <!-- Fehér szöveg -->
-                    <Setter Property="FontSize" Value="16"/>
-                    <!-- Nagyobb szöveg -->
-                    <Setter Property="FontWeight" Value="Bold"/>
-                    <!-- Félkövér betű -->
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <!-- Nincs keret -->
-                    <Setter Property="Padding" Value="10,5"/>
-                    <!-- Belső margók -->
-                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                    <Setter Property="VerticalContentAlignment" Value="Center"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="Button">
-                                <Grid>
-                                    <!-- Háttér -->
-                                    <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                        CornerRadius="8">
-                                        <!-- Lekerekített sarkok -->
-                                        <Border.Effect>
-                                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="2"/>
-                                            <!-- Árnyék -->
-                                        </Border.Effect>
-                                    </Border>
-                                    <!-- Szöveg -->
-                                    <ContentPresenter HorizontalAlignment="Center" 
-                                                  VerticalAlignment="Center"/>
-                                </Grid>
-                                <!-- Hover effekt -->
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FF81C784" TargetName="border"/>
-                                        <!-- Világosabb zöld -->
-                                    </Trigger>
-                                    <Trigger Property="IsPressed" Value="True">
-                                        <Setter Property="Background" Value="#FF388E3C" TargetName="border"/>
-                                        <!-- Sötétebb zöld -->
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Button.Style>
-        </Button>
         <TextBox x:Name="searchByLicensePlate" HorizontalAlignment="Left" Margin="228,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" Height="35" TextChanged="searchByLicensePlate_TextChanged"/>
         <Label Content="Keresés rendszám alapján" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Height="39" Width="213" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
@@ -74,7 +18,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <ListBox x:Name="lbxCars" Margin="10,257,475,10"/>
+        <ListBox x:Name="lbxCars" Margin="10,238,846,29"/>
         <Label x:Name="searchByLicensePlatelbl" Content="" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Height="23" Width="367"/>
         <Label Content="Keresés évjárat alapján" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Height="40" Width="213" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
@@ -87,12 +31,8 @@
             </Label.RenderTransform>
         </Label>
         <ComboBox x:Name="cmbxYear" HorizontalAlignment="Left" Margin="228,70,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbxYear_SelectionChanged"/>
-        <TextBox x:Name="tbxBrand" HorizontalAlignment="Left" Margin="592,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="24"/>
-        <TextBox x:Name="tbxYear" HorizontalAlignment="Left" Margin="592,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="23"/>
-        <TextBox x:Name="tbxType" HorizontalAlignment="Left" Margin="592,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="24"/>
-        <TextBox x:Name="tbxPrice" HorizontalAlignment="Left" Margin="592,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="24"/>
-        <TextBox x:Name="tbxLicensePlate" HorizontalAlignment="Left" Margin="592,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="24"/>
-        <Label Content="Márka" HorizontalAlignment="Left" Margin="492,7,0,0" VerticalAlignment="Top" Height="32" Width="96" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="tbxHowManyKm" HorizontalAlignment="Left" Margin="522,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Height="35" TextChanged="tbxHowManyKm_TextChanged"/>
+        <Label Content="Évente hány kilométert teszel meg átlagosan?" HorizontalAlignment="Left" Margin="400,9,0,0" VerticalAlignment="Top" Height="35" Width="376" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -102,7 +42,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="Évjárat" HorizontalAlignment="Left" Margin="492,68,0,0" VerticalAlignment="Top" Height="31" Width="96" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
+        <TextBlock x:Name="tblCarCost" HorizontalAlignment="Left" Margin="372,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="118" Width="432"/>
+        <Label Content="Keresés márka alapján" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Height="40" Width="213" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -112,125 +53,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="Típus" HorizontalAlignment="Left" Margin="492,39,0,0" VerticalAlignment="Top" Height="32" Width="96" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label Content="Ár" HorizontalAlignment="Left" Margin="492,96,0,0" VerticalAlignment="Top" Height="32" Width="96" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label Content="Rendszám" HorizontalAlignment="Left" Margin="492,126,0,0" VerticalAlignment="Top" Height="32" Width="96" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label Content="Tulajdonos" HorizontalAlignment="Left" Margin="492,158,0,0" VerticalAlignment="Top" Height="32" Width="96" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <ComboBox x:Name="chbxOwner" HorizontalAlignment="Left" Margin="592,162,0,0" VerticalAlignment="Top" Width="168"/>
-        <Button x:Name="newCarBtn" Content="Autó hozzáadása" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top" 
-            Margin="602,341,0,0" 
-            Width="148" 
-            Height="28" Click="newCarBtn_Click" RenderTransformOrigin="0.289,0.511">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#FF4CAF50"/>
-                    <!-- Modern zöld szín -->
-                    <Setter Property="Foreground" Value="White"/>
-                    <!-- Fehér szöveg -->
-                    <Setter Property="FontSize" Value="16"/>
-                    <!-- Nagyobb szöveg -->
-                    <Setter Property="FontWeight" Value="Bold"/>
-                    <!-- Félkövér betű -->
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <!-- Nincs keret -->
-                    <Setter Property="Padding" Value="10,5"/>
-                    <!-- Belső margók -->
-                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                    <Setter Property="VerticalContentAlignment" Value="Center"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Grid>
-                                    <!-- Háttér -->
-                                    <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                        CornerRadius="8">
-                                        <!-- Lekerekített sarkok -->
-                                        <Border.Effect>
-                                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="2"/>
-                                            <!-- Árnyék -->
-                                        </Border.Effect>
-                                    </Border>
-                                    <!-- Szöveg -->
-                                    <ContentPresenter HorizontalAlignment="Center" 
-                                        VerticalAlignment="Center"/>
-                                </Grid>
-                                <!-- Hover effekt -->
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FF81C784" TargetName="border"/>
-                                        <!-- Világosabb zöld -->
-                                    </Trigger>
-                                    <Trigger Property="IsPressed" Value="True">
-                                        <Setter Property="Background" Value="#FF388E3C" TargetName="border"/>
-                                        <!-- Sötétebb zöld -->
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Button.Style>
-        </Button>
-        <TextBox x:Name="tbxColor" HorizontalAlignment="Left" Margin="592,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="24"/>
-        <Label Content="Szín" HorizontalAlignment="Left" Margin="492,190,0,0" VerticalAlignment="Top" Height="32" Width="96" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <TextBox x:Name="tbxFuelConsumption" HorizontalAlignment="Left" Margin="592,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="24"/>
-        <Label Content="Fogyasztás" HorizontalAlignment="Left" Margin="492,222,0,0" VerticalAlignment="Top" Height="32" Width="96" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
+        <ComboBox x:Name="cmbxBrand" HorizontalAlignment="Left" Margin="228,121,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbxBrand_SelectionChanged"/>
     </Grid>
 
 </Window>
